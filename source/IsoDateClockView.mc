@@ -5,7 +5,10 @@ using Toybox.Lang as Lang;
 
 class IsoDateClockView extends Ui.WatchFace {
 
+    var presenter;
+
     function initialize() {
+        presenter = new Presenter();
         WatchFace.initialize();
     }
 
@@ -15,10 +18,15 @@ class IsoDateClockView extends Ui.WatchFace {
 
     function onUpdate(dc) {
         var clockTime = Sys.getClockTime();
-        var timeString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
+        
+        var timeString = presenter.formatTime(clockTime);
+        showTime(timeString);
+        
+        View.onUpdate(dc);
+    }
+    
+    function showTime(timeString) {
         var timeLabel = View.findDrawableById("TimeLabel");
         timeLabel.setText(timeString);
-
-        View.onUpdate(dc);
     }
 }
