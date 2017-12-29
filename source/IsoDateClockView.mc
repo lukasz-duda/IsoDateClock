@@ -22,6 +22,8 @@ class IsoDateClockView extends Ui.WatchFace {
         var timeString = presenter.formatTime(clockTime);
         showTime(timeString);
         
+        showDate("2000-01-02");
+        
         View.onUpdate(dc);
     }
     
@@ -29,4 +31,10 @@ class IsoDateClockView extends Ui.WatchFace {
         var timeLabel = View.findDrawableById("TimeLabel");
         timeLabel.setText(timeString);
     }
+    
+    function showDate(dateString) {
+        var dateLabel = View.findDrawableById("DateLabel");
+        dateLabel.setText(dateString);
+    }
+    
 }
