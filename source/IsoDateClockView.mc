@@ -2,6 +2,7 @@ using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 using Toybox.System as Sys;
 using Toybox.Lang as Lang;
+using Toybox.Time as Time;
 
 class IsoDateClockView extends Ui.WatchFace {
 
@@ -22,7 +23,9 @@ class IsoDateClockView extends Ui.WatchFace {
         var timeString = presenter.formatTime(clockTime);
         showTime(timeString);
         
-        showDate("2000-01-02");
+        var today = Time.today();
+        var dateString = presenter.formatDate(today);
+        showDate(dateString);
         
         View.onUpdate(dc);
     }

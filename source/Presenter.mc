@@ -1,5 +1,7 @@
 using Toybox.System as Sys;
 using Toybox.Lang as Lang;
+using Toybox.Time as Time;
+using Toybox.Time.Gregorian;
 
 class Presenter {
 
@@ -14,6 +16,24 @@ class Presenter {
         clockTime.hour = hour;
         clockTime.min = minute;
         return clockTime;
+    }
+
+    function formatDate(date) {
+        var dateInfo = Gregorian.info(date, Time.FORMAT_SHORT);
+        var year = dateInfo.year;
+        var month = dateInfo.month.format("%02d");
+        var day = dateInfo.day.format("%02d");
+        return Lang.format("$1$-$2$-$3$", [year, month, day]);
+    }
+    
+    function newDate(year, month, day) {
+	    var options = {
+		    :year   => year,
+		    :month  => month,
+		    :day    => day
+		};
+		
+        return Gregorian.moment(options);
     }
     
 }
