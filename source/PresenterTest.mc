@@ -39,5 +39,27 @@ class PresenterTest {
         var message = formattedDate + " should be equal " + expectedFormattedDate;
         Test.assertEqualMessage(expectedFormattedDate, formattedDate, message);
     }
+    
+    (:test)
+    function testFormattedRemainingBattery(logger) {
+        var test = new PresenterTest();
+        test.assertFormattedRemainingBattery(0, "0 %");
+        test.assertFormattedRemainingBattery(0.4, "0 %");
+        test.assertFormattedRemainingBattery(0.5, "1 %");
+        test.assertFormattedRemainingBattery(0.999, "1 %");
+        test.assertFormattedRemainingBattery(1, "1 %");
+        test.assertFormattedRemainingBattery(99, "99 %");
+        test.assertFormattedRemainingBattery(100, "100 %");
+        return true;
+    }
+    
+    function assertFormattedRemainingBattery(remainingBattery, expectedString) {
+        var sut = new Presenter();
+        
+        var formattedRemainingBattery = sut.formatRemainingBattery(remainingBattery);
+        
+        var message = formattedRemainingBattery + " should be equal " + expectedString;
+        Test.assertEqualMessage(expectedString, formattedRemainingBattery, message);
+    }
 
 }

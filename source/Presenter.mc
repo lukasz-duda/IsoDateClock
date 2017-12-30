@@ -1,7 +1,7 @@
 using Toybox.System as Sys;
 using Toybox.Lang as Lang;
 using Toybox.Time as Time;
-using Toybox.Time.Gregorian;
+using Toybox.Time.Gregorian as Gregorian;
 
 class Presenter {
 
@@ -34,6 +34,10 @@ class Presenter {
 		};
 		
         return Gregorian.moment(options);
+    }
+    
+    function formatRemainingBattery(remainingBattery) { 
+        return remainingBattery.format("%.0f") + " %";
     }
     
 }

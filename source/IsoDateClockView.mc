@@ -27,6 +27,10 @@ class IsoDateClockView extends Ui.WatchFace {
         var dateString = presenter.formatDate(today);
         showDate(dateString);
         
+        var systemStats = Sys.getSystemStats();
+        var remainingBatteryString = presenter.formatRemainingBattery(systemStats.battery); 
+        showRemainingBattery(remainingBatteryString);
+        
         View.onUpdate(dc);
     }
     
@@ -38,6 +42,11 @@ class IsoDateClockView extends Ui.WatchFace {
     function showDate(dateString) {
         var dateLabel = View.findDrawableById("DateLabel");
         dateLabel.setText(dateString);
+    }
+    
+    function showRemainingBattery(remainingBatteryString) {
+        var batteryLabel = View.findDrawableById("RemainingBatteryLabel");
+        batteryLabel.setText(remainingBatteryString);
     }
     
 }
