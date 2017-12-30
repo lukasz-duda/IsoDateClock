@@ -1,15 +1,12 @@
 using Toybox.WatchUi as Ui;
-using Toybox.Graphics as Gfx;
-using Toybox.System as Sys;
-using Toybox.Lang as Lang;
-using Toybox.Time as Time;
 
 class IsoDateClockView extends Ui.WatchFace {
 
     var presenter;
 
     function initialize() {
-        presenter = new Presenter();
+        var gateway = new SystemGateway();
+        presenter = new Presenter(gateway, me);
         WatchFace.initialize();
     }
 
@@ -18,19 +15,7 @@ class IsoDateClockView extends Ui.WatchFace {
     }
 
     function onUpdate(dc) {
-        var clockTime = Sys.getClockTime();
-        
-        var timeString = presenter.formatTime(clockTime);
-        showTime(timeString);
-        
-        var today = Time.today();
-        var dateString = presenter.formatDate(today);
-        showDate(dateString);
-        
-        var systemStats = Sys.getSystemStats();
-        var remainingBatteryString = presenter.formatRemainingBattery(systemStats.battery); 
-        showRemainingBattery(remainingBatteryString);
-        
+        presenter.updateView();
         View.onUpdate(dc);
     }
     
@@ -46,7 +31,7 @@ class IsoDateClockView extends Ui.WatchFace {
     
     function showRemainingBattery(remainingBatteryString) {
         var batteryLabel = View.findDrawableById("RemainingBatteryLabel");
-        batteryLabel.setText(remainingBatteryString);
+        batteryLabel.setText(remainingBatteryString + " ");
     }
     
 }
