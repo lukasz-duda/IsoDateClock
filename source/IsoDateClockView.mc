@@ -33,7 +33,8 @@ class IsoDateClockView extends Ui.WatchFace {
     
     function showRemainingBattery(remainingBatteryString) {
         var batteryLabel = View.findDrawableById("RemainingBatteryLabel");
-        batteryLabel.setText(remainingBatteryString + " ");
+        var marginString = " ";
+        batteryLabel.setText(remainingBatteryString + marginString);
     }
     
     function showDayOfWeek(dayOfWeekString) {

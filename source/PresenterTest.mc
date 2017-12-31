@@ -1,4 +1,5 @@
 using Toybox.Test as Test;
+using Toybox.WatchUi as Ui;
 
 class PresenterTest {
 
@@ -78,6 +79,30 @@ class PresenterTest {
         test.sut.updateView();
         
         var presentedString = test.view.getPresentedRemainingBattery();
+        test.assertPresentedString(expectedString, presentedString);
+    }
+    
+    (:test)
+    function updateView_showsDayOfWeek(logger) {
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 1, Rez.Strings.Monday);
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 2, Rez.Strings.Tuesday);
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 3, Rez.Strings.Wednesday);
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 4, Rez.Strings.Thursday);
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 5, Rez.Strings.Friday);
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 6, Rez.Strings.Saturday);
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 7, Rez.Strings.Sunday);
+        PresenterTest.assertPresentedDayOfWeek(2018, 1, 8, Rez.Strings.Monday);
+        return true;
+    }
+    
+    function assertPresentedDayOfWeek(year, month, day, dayOfWeekResoureId) {
+        var expectedString = Ui.loadResource(dayOfWeekResoureId);
+        var test = PresenterTest.make();
+        test.gateway.setDate(year, month, day);
+        
+        test.sut.updateView();
+        
+        var presentedString = test.view.getPresentedDayOfWeek();
         test.assertPresentedString(expectedString, presentedString);
     }
 

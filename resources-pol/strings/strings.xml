@@ -1,3 +1,10 @@
-<strings>
+﻿<strings>
     <string id="AppName">Zegar z datą ISO</string>
+    <string id="Monday">poniedzialek</string>
+    <string id="Tuesday">wtorek</string>
+    <string id="Wednesday">sroda</string>
+    <string id="Thursday">czwartek</string>
+    <string id="Friday">piatek</string>
+    <string id="Saturday">sobota</string>
+    <string id="Sunday">niedziela</string>
 </strings>

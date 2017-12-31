@@ -2,6 +2,7 @@ using Toybox.System as Sys;
 using Toybox.Lang as Lang;
 using Toybox.Time as Time;
 using Toybox.Time.Gregorian as Gregorian;
+using Toybox.WatchUi as Ui;
 
 class Presenter {
 
@@ -33,16 +34,29 @@ class Presenter {
 
     function updateDate() {
         var today = gateway.today();
-        var dateString = formatDate(today);
+        var dateInfo = Gregorian.info(today, Time.FORMAT_SHORT);
+        var dateString = formatDate(dateInfo);
         view.showDate(dateString);
+        var dayOfWeekString = formatDayOfWeek(dateInfo);
+        view.showDayOfWeek(dayOfWeekString);
     }
 
-    function formatDate(date) {
-        var dateInfo = Gregorian.info(date, Time.FORMAT_SHORT);
+    function formatDate(dateInfo) {
         var year = dateInfo.year;
         var month = dateInfo.month.format("%02d");
         var day = dateInfo.day.format("%02d");
         return Lang.format("$1$-$2$-$3$", [year, month, day]);
+    }
+    
+    function formatDayOfWeek(dateInfo) {
+        var dayOfWeekResourceIds = [Rez.Strings.Sunday, Rez.Strings.Monday,
+            Rez.Strings.Tuesday, Rez.Strings.Wednesday, Rez.Strings.Thursday,
+            Rez.Strings.Friday, Rez.Strings.Saturday];
+
+        var dayOfWeekResourceIndex = dateInfo.day_of_week - 1;
+        var dayOfWeekResourceId = dayOfWeekResourceIds[dayOfWeekResourceIndex];
+        
+        return Ui.loadResource(dayOfWeekResourceId);
     }
     
     function updateRemainingBattery() {
