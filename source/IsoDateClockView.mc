@@ -2,11 +2,7 @@ using Toybox.WatchUi as Ui;
 
 class IsoDateClockView extends Ui.WatchFace {
 
-    var presenter;
-
     function initialize() {
-        var gateway = new SystemGateway();
-        presenter = new Presenter(gateway, me);
         WatchFace.initialize();
     }
 
@@ -15,8 +11,14 @@ class IsoDateClockView extends Ui.WatchFace {
     }
 
     function onUpdate(dc) {
+        var presenter = makePresenter();
         presenter.updateView();
         View.onUpdate(dc);
+    }
+    
+    function makePresenter() {
+        var gateway = new SystemGateway();
+        return new Presenter(gateway, me);
     }
     
     function showTime(timeString) {
@@ -32,6 +34,11 @@ class IsoDateClockView extends Ui.WatchFace {
     function showRemainingBattery(remainingBatteryString) {
         var batteryLabel = View.findDrawableById("RemainingBatteryLabel");
         batteryLabel.setText(remainingBatteryString + " ");
+    }
+    
+    function showDayOfWeek(dayOfWeekString) {
+        var dayOfWeekLabel = View.findDrawableById("DayOfWeekLabel");
+        dayOfWeekLabel.setText(dayOfWeekString);
     }
     
 }

@@ -6,4 +6,7 @@
 	<label id="RemainingBatteryLabel" x="right" y="bottom" font="Gfx.FONT_TINY"
 		justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE">
 	</label>
+	<label id="DayOfWeekLabel" x="left" y="bottom" font="Gfx.FONT_MEDIUM"
+		justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE">
+	</label>
 </layout>
