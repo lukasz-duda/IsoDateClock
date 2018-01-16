@@ -1,12 +1,11 @@
 <layout id="WatchFace">
-    <label id="TimeLabel" x="center" y="center" font="Gfx.FONT_NUMBER_THAI_HOT" justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" /><label
-    	id="DateLabel" x="center" y="top" font="Gfx.FONT_LARGE" justification="Gfx.TEXT_JUSTIFY_CENTER"
-    	color="Gfx.COLOR_WHITE">
-</label>
-	<label id="RemainingBatteryLabel" x="right" y="bottom" font="Gfx.FONT_MEDIUM"
-		justification="Gfx.TEXT_JUSTIFY_RIGHT" color="Gfx.COLOR_WHITE">
-	</label>
-	<label id="DayOfWeekLabel" x="left" y="bottom" font="Gfx.FONT_MEDIUM"
-		justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE">
-	</label>
+    <label id="TimeLabel" x="center" y="center" font="Gfx.FONT_NUMBER_THAI_HOT"
+        justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" />
+    <label id="DateLabel" x="center" y="top" font="Gfx.FONT_LARGE"
+        justification="Gfx.TEXT_JUSTIFY_CENTER" color="Gfx.COLOR_WHITE" />
+    <label id="DayOfWeekLabel" x="left" y="bottom" font="@Fonts.Roboto"
+        justification="Gfx.TEXT_JUSTIFY_LEFT" color="Gfx.COLOR_WHITE" />
+    <label id="RemainingBatteryLabel" x="right" y="bottom"
+        font="Gfx.FONT_MEDIUM" justification="Gfx.TEXT_JUSTIFY_RIGHT"
+        color="Gfx.COLOR_WHITE" />
 </layout>
