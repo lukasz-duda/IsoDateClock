@@ -1,4 +1,4 @@
 <fonts>
     <font id="Roboto" filename="Roboto.fnt" filter="aąbcdeFhiklłMnoprsSśtTuwWyzабвгдеиклнопрстуцчья0123456789% "
-        antialias="true" />
+        antialias="false" />
 </fonts>
