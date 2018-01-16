@@ -1,13 +1,13 @@
 using Toybox.Application as App;
 
-class IsoDateClockApp extends App.AppBase {
+class DateClockApp extends App.AppBase {
 
     function initialize() {
         AppBase.initialize();
     }
 
     function getInitialView() {
-        return [ new IsoDateClockView() ];
+        return [ new DateClockView() ];
     }
 
 }

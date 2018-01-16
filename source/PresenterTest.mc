@@ -44,9 +44,9 @@ class PresenterTest {
     
     (:test)
     function updateView_showsDate(logger) {
-        PresenterTest.assertPresentedDate(1970, 1, 1, "1970-01-01");
-        PresenterTest.assertPresentedDate(2000, 1, 2, "2000-01-02");
-        PresenterTest.assertPresentedDate(2017, 12, 31, "2017-12-31");
+        PresenterTest.assertPresentedDate(1970, 1, 1, "01.01.1970");
+        PresenterTest.assertPresentedDate(2000, 1, 2, "02.01.2000");
+        PresenterTest.assertPresentedDate(2017, 12, 31, "31.12.2017");
         return true;
     }
     

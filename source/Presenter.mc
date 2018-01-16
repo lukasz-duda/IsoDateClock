@@ -45,7 +45,7 @@ class Presenter {
         var year = dateInfo.year;
         var month = dateInfo.month.format("%02d");
         var day = dateInfo.day.format("%02d");
-        return Lang.format("$1$-$2$-$3$", [year, month, day]);
+        return Lang.format("$1$.$2$.$3$", [day, month, year]);
     }
     
     function formatDayOfWeek(dateInfo) {

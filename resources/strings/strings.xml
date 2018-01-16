@@ -1,10 +1,10 @@
 <strings>
-    <string id="AppName">ISO date clock</string>
-    <string id="Monday">Monday</string>
-    <string id="Tuesday">Tuesday</string>
-    <string id="Wednesday">Wednesday</string>
-    <string id="Thursday">Thursday</string>
-    <string id="Friday">Friday</string>
-    <string id="Saturday">Saturday</string>
-    <string id="Sunday">Sunday</string>
+    <string id="AppName">Часы с датой</string>
+    <string id="Monday">понедельник</string>
+    <string id="Tuesday">вторник</string>
+    <string id="Wednesday">среда</string>
+    <string id="Thursday">четверг</string>
+    <string id="Friday">пятница</string>
+    <string id="Saturday">суббота</string>
+    <string id="Sunday">воскресенье</string>
 </strings>

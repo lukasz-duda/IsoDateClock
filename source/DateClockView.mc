@@ -1,6 +1,6 @@
 using Toybox.WatchUi as Ui;
 
-class IsoDateClockView extends Ui.WatchFace {
+class DateClockView extends Ui.WatchFace {
 
     function initialize() {
         WatchFace.initialize();
